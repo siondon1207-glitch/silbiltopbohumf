@@ -1,23 +1,1164 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <style>
+    /* 폰트 및 리셋 스타일 */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      color: #333333;
+      letter-spacing: -0.01em;
+    }
+
+    /* 헤더 스타일 - 소프트 그라디언트 적용 */
+    header {
+      background: linear-gradient(135deg, #e6f0fa 0%, #f0f4f8 50%, #fcf9f5 100%);
+      color: #31708e;
+      text-align: center;
+      padding: 80px 20px;
+      border-bottom: 1px solid #e1eaf2;
+    }
+    
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #2c3e50;
+      margin: 0 0 15px 0;
+      letter-spacing: -0.03em;
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      color: #5d6d7e;
+      margin: 0 auto;
+      max-width: 800px;
+      font-weight: 400;
+    }
+
+    header .highlight-text {
+      color: #e67e6d;
+      font-weight: 700;
+    }
+
+    /* 내비게이션 바 */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #eef2f5;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+    
+    nav ul li a {
+      display: block;
+      padding: 18px 25px;
+      text-decoration: none;
+      color: #566573;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.25s ease;
+    }
+    
+    nav ul li a:hover {
+      color: #31708e;
+      background-color: #f0f4f8;
+    }
+
+    /* 본문 구조 */
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(149, 157, 165, 0.05);
+      border: 1px solid #eef2f6;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      border-left: 5px solid #31708e;
+      padding-left: 15px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      color: #34495e;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #4a5568;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .highlight-span {
+      background-color: #fff2e6;
+      color: #d35400;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* CTA 버튼 */
+    .cta-container {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      padding: 16px 35px;
+      background-color: #ff8e7a;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(255, 142, 122, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-custom:hover {
+      background-color: #e67e6d;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 142, 122, 0.4);
+    }
+
+    /* 표 스타일 */
+    .table-container {
+      overflow-x: auto;
+      margin: 30px 0;
+      border-radius: 12px;
+      border: 1px solid #eef2f6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f0f4f8;
+      color: #2c3e50;
+      font-weight: 700;
+      padding: 16px;
+      border-bottom: 2px solid #d4e1ed;
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid #eef2f6;
+      color: #4a5568;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fbfcfe;
+    }
+
+    /* CSS 기반 비주얼 차트 */
+    .chart-box {
+      background-color: #fafbfc;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+      border: 1px solid #eef2f6;
+    }
+
+    .chart-box h4 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      font-size: 1.1rem;
+    }
+
+    .chart-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .chart-row {
+      display: flex;
+      align-items: center;
+    }
+
+    .chart-label {
+      width: 120px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #566573;
+    }
+
+    .chart-bar-wrapper {
+      flex-grow: 1;
+      background-color: #eaeded;
+      border-radius: 8px;
+      height: 24px;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      transition: width 1s ease-in-out;
+    }
+
+    .chart-value {
+      width: 110px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #2c3e50;
+      text-align: right;
+    }
+
+    /* 대화형 요금 계산기 스타일 */
+    .calculator-card {
+      background: linear-gradient(145deg, #ffffff, #fcfdfd);
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 35px;
+      margin: 35px 0;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.02);
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .calc-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calc-group label {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #34495e;
+      font-size: 0.95rem;
+    }
+
+    .calc-group input[type="number"],
+    .calc-group select {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .calc-group input:focus,
+    .calc-group select:focus {
+      border-color: #31708e;
+    }
+
+    .calc-radio-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 5px;
+    }
+
+    .calc-radio-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #4a5568;
+    }
+
+    .calc-checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .calc-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+
+    .calc-slider-container {
+      margin-top: 10px;
+    }
+
+    .calc-slider-value {
+      font-weight: 700;
+      color: #31708e;
+      margin-top: 5px;
+      display: inline-block;
+    }
+
+    .calc-result-box {
+      background-color: #f8fafc;
+      border-radius: 12px;
+      padding: 25px;
+      border-left: 4px solid #31708e;
+    }
+
+    .calc-result-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      color: #4a5568;
+    }
+
+    .calc-result-row.total-row {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 15px;
+      margin-bottom: 0;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #2c3e50;
+    }
+
+    .calc-result-row.total-row .val {
+      color: #ff8e7a;
+    }
+
+    /* 리스트 스타일 */
+    ul.custom-bullet-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.custom-bullet-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+      color: #4a5568;
+    }
+
+    ul.custom-bullet-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      background-color: #31708e;
+      border-radius: 50%;
+    }
+
+    ol.custom-num-list {
+      padding-left: 20px;
+    }
+
+    ol.custom-num-list li {
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+      color: #4a5568;
+    }
+
+    ol.custom-num-list li strong {
+      color: #2c3e50;
+    }
+
+    blockquote {
+      border-left: 4px solid #ff8e7a;
+      background-color: #fdf6f5;
+      padding: 20px 25px;
+      margin: 30px 0;
+      border-radius: 0 12px 12px 0;
+    }
+
+    blockquote p {
+      margin: 0;
+      font-style: italic;
+      color: #5d6d7e;
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #95a5a6;
+      font-style: normal;
+    }
+
+    blockquote cite a {
+      color: #31708e;
+      text-decoration: none;
+    }
+
+    /* 폼 스타일 */
+    .consultation-form-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.02);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #34495e;
+      font-size: 0.95rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group select,
+    .form-group textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.25s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #31708e;
+      box-shadow: 0 0 0 3px rgba(49, 112, 142, 0.1);
+    }
+
+    .form-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #5d6d7e;
+      cursor: pointer;
+    }
+
+    /* 아코디언 FAQ */
+    .faq-item {
+      border-bottom: 1px solid #eef2f6;
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #2c3e50;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      font-size: 1.05rem;
+      color: #4a5568;
+      margin-top: 12px;
+      display: none;
+      padding-left: 10px;
+    }
+
+    /* 푸터 외부 링크 */
+    .footer-references {
+      background-color: #eef2f6;
+      border-radius: 12px;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    .footer-references h4 {
+      margin-top: 0;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .footer-references ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-references li {
+      margin-bottom: 10px;
+    }
+
+    .footer-references li a {
+      color: #31708e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-references li a:hover {
+      text-decoration: underline;
+    }
+
+    /* 반응형 레이아웃 */
+    @media (max-width: 768px) {
+      header {
+        padding: 50px 15px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      nav ul li a {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+      }
+      section {
+        padding: 25px 15px;
+      }
+      .calc-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+    }
+  </style>
+
+  <!-- Schema.org 마크업(JSON-LD) - AI 챗봇 및 검색엔진 노출 최적화 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "name": "2026년 실비특약 한눈에 비교 분석 및 추천 가이드",
+    "image": "https://directpsearchy.reliabledone.com/images/silbi-main.jpg",
+    "url": "https://directpsearchy.reliabledone.com/silbi-rider",
+    "description": "2026년 5세대 실비특약 출시 분석, 연령별 평균 실손보험료 금액, 다이렉트 최저가 요금 계산기 제공. 1세대부터 5세대까지의 장단점 및 차이점 완벽 비교.",
+    "brand": {
+      "@type": "Brand",
+      "name": "실비특약 다이렉트 전문 컨설팅 플랫폼"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "KRW",
+      "price": "10000"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>2026년 실비특약 총정리 및 세대별 완벽 비교 가이드</h1>
+    <p>5세대 신규 실비특약의 상세 분석부터 내 나이대에 맞는 실손의료비 요금 계산까지, 현명한 보험 리모델링을 지원합니다.</p>
+    <div class="cta-container">
+      <a href="#calculator-section" class="btn-custom">실시간 예상 요금 직접 계산해보기</a>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#intro">5세대 대개편 분석</a></li>
+      <li><a href="#comparison">세대별 상세 비교</a></li>
+      <li><a href="#age-guide">연령별 맞춤 설계</a></li>
+      <li><a href="#calculator-section">예상 요금 계산기</a></li>
+      <li><a href="#community">소비자 리얼 리뷰</a></li>
+      <li><a href="#form-section">무료 1:1 컨설팅</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- 섹션 1: 5세대 개편안 소개 -->
+    <section id="intro">
+      <h2>5세대 실비특약의 탄생과 2026년 대개편 트렌드</h2>
+      <p>
+        2026년 5월 6일부터 금융위원회의 대대적인 실손의료보험 개혁안에 따라 새로운 <span class="highlight-span">5세대 실비특약</span> 상품이 본격적으로 출시 및 가입 처리를 시작하였습니다. 
+        최근 <span class="highlight-span">네이버</span>, <span class="highlight-span">구글</span>을 포함한 주요 포털 사이트 및 <span class="highlight-span">AI</span> 기반 검색 채널에서는 기존 1세대부터 4세대 가입자들이 새로운 5세대로 계약전환 하는법이나 신규 신청 혜택에 대한 질문이 쏟아지고 있습니다. 
+        많은 소비자들이 과연 이번에 개편된 실비특약의 <span class="highlight-span">평균</span> 요금은 <span class="highlight-span">얼마</span> 정도이며, 본인이 부담해야 하는 <span class="highlight-span">예상</span> <span class="highlight-span">금액</span>과 <span class="highlight-span">가격</span> <span class="highlight-span">차이점</span>이 무엇인지 꼼꼼히 비교 및 분석하고 있습니다.
+      </p>
+      <p>
+        기존의 4세대 실비특약이 2026년 5월을 마지막으로 신규 가입이 중단되면서, 이제 시장의 중심은 급여와 비급여를 분리하고 과잉 진료 제어를 대폭 강화한 5세대 상품으로 완전히 이동했습니다. 
+        이에 따라 많은 <span class="highlight-span">전문</span> 컨설팅 <span class="highlight-span">업체</span>와 보험 분석가들은 다이렉트 온라인 채널을 통해 가장 <span class="highlight-span">싼곳</span>과 <span class="highlight-span">저렴한곳</span> 좌표를 찾는 소비자들을 위해 맞춤형 가이드라인을 제공하고 있습니다.
+      </p>
+      
+      <div class="chart-box">
+        <h4>세대별 평균 기본 요금 추이 비교 (2026년 상반기 기준)</h4>
+        <div class="chart-container">
+          <div class="chart-row">
+            <span class="chart-label">1세대 실비</span>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar-fill" style="width: 100%; background-color: #e67e6d;"></div>
+            </div>
+            <span class="chart-value">약 38,000원 대</span>
+          </div>
+          <div class="chart-row">
+            <span class="chart-label">2세대 실비</span>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar-fill" style="width: 75%; background-color: #f39c12;"></div>
+            </div>
+            <span class="chart-value">약 28,000원 대</span>
+          </div>
+          <div class="chart-row">
+            <span class="chart-label">3세대 실비</span>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar-fill" style="width: 50%; background-color: #3498db;"></div>
+            </div>
+            <span class="chart-value">약 19,000원 대</span>
+          </div>
+          <div class="chart-row">
+            <span class="chart-label">4세대 실비</span>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar-fill" style="width: 35%; background-color: #2ecc71;"></div>
+            </div>
+            <span class="chart-value">약 13,000원 대</span>
+          </div>
+          <div class="chart-row">
+            <span class="chart-label">5세대 실비</span>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar-fill" style="width: 25%; background-color: #31708e;"></div>
+            </div>
+            <span class="chart-value">약 9,500원 대</span>
+          </div>
+        </div>
+      </div>
+      
+      <p>
+        새로운 5세대 실비특약의 가장 획기적인 개정 방향은 선량한 미이용자의 보험료 인하와 무분별한 의료쇼핑 차단에 있습니다. 
+        비급여 의료비 누수가 심각했던 도수치료, 비급여 주사, MRI 촬영 부문을 더 엄격히 구분하고, 자기부담률을 유연하게 조정한 것이 이번 개편의 핵심 장치입니다.
+      </p>
+    </section>
+
+    <!-- 섹션 2: 세대별 비교 테이블 -->
+    <section id="comparison">
+      <h2>실비특약 세대별 상세 비교 (1세대부터 5세대까지)</h2>
+      <p>
+        실비특약의 역사는 가입 시기에 따라 1세대부터 5세대까지 그 <span class="highlight-span">종류</span>와 <span class="highlight-span">브랜드</span> 보장 범위가 뚜렷하게 나뉩니다. 
+        과거에 가입했던 초기 실손은 보장 비율이 100%에 달해 혜택이 컸지만, 손해율 악화로 인해 매년 갱신 시점마다 엄청난 폭탄 <span class="highlight-span">요금</span> 인상을 감당해야 하는 단점이 있습니다. 
+        반면 2026년 신규 출시된 5세대 실비특약은 필수 치료 중심의 급여 보장을 공고히 하면서도, 비급여 치료에 대해서는 중증(특약1)과 비중증(특약2)으로 구별하여 합리적인 의료 이용을 유도합니다.
+      </p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>1세대 (~2009년 9월)</th>
+              <th>2~3세대 (2009.10 ~ 2021.06)</th>
+              <th>4세대 (2021.07 ~ 2026.05)</th>
+              <th>5세대 (2026.05 ~ 현재)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>비급여 자기부담 비율</td>
+              <td>0% ~ 20%</td>
+              <td>10% ~ 30%</td>
+              <td>30%</td>
+              <td>중증 30% / 비중증 50%</td>
+            </tr>
+            <tr>
+              <td>비급여 보장 한도</td>
+              <td>한도 없음 (가입 금액 내)</td>
+              <td>통합 한도 보장</td>
+              <td>연간 최대 5,000만 원</td>
+              <td>중증 5천만 원 / 비중증 1,000만 원</td>
+            </tr>
+            <tr>
+              <td>갱신 및 재가입 주기</td>
+              <td>재가입 없음 (종신갱신형)</td>
+              <td>15년 재가입 주기 적용</td>
+              <td>5년 재가입 주기 적용</td>
+              <td>5년 재가입 주기 적용</td>
+            </tr>
+            <tr>
+              <td>보험료 수준</td>
+              <td>매우 높음 (손해율 연동 극심)</td>
+              <td>높음 (평균 대비 상승폭 큼)</td>
+              <td>낮음</td>
+              <td>가장 낮음 (4세대 대비 30% 감면)</td>
+            </tr>
+            <tr>
+              <td>특이 사항</td>
+              <td>과다 청구로 인한 요금 급증</td>
+              <td>도수치료/주사료/MRI 특약분리</td>
+              <td>비급여 사용량 연동 할증제</td>
+              <td>중증질환 급여 보장 강화 정책 연계</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        특히 도수치료, 비급여 주사, MRI 등 비필수적이고 과잉 진료가 빈번한 비중증 비급여 특약의 경우 자기부담률이 기존 30%에서 50%로 상향되어, 병원을 자주 가지 않는 선량한 가입자들의 보험료 부담을 크게 덜어주었습니다. 
+        또한, 2026년 11월부터는 1세대와 2세대 가입자가 5세대로 전환 시 3년간 요금의 50%를 감면해 주는 한시적 <span class="highlight-span">할인</span> 계약전환 <span class="highlight-span">이벤트</span> 혜택도 시행되어 기존 가입자들의 갈아타기 고민이 깊어지고 있습니다. 
+        이와 관련하여 궁금한 사항은 각 보험사 <span class="highlight-span">고객센터</span>나 다이렉트 전문 상담 창구를 통해 맞춤형 <span class="highlight-span">컨설팅</span>을 신청하여 최저가 <span class="highlight-span">견적</span>을 미리 받아보는 것이 현명한 <span class="highlight-span">방법</span>입니다.
+      </p>
+    </section>
+
+    <!-- 섹션 3: 연령별 상세 가이드 (32개 키워드 매핑) -->
+    <section id="age-guide">
+      <h2>연령별 및 맞춤형 실비특약 상세 설계 가이드</h2>
+      <p>
+        개인의 연령이나 사회적 상황에 따라 가입해야 하는 실비특약의 설계 방식과 유지 요령은 전혀 다르게 적용되어야 합니다. 
+        나이와 소득 여건, 건강 상태를 무시한 획일적인 구성은 훗날 필요할 때 혜택을 받지 못하거나 경제적 어려움으로 해지하게 되는 원인이 됩니다. 
+        다음은 국내 주요 건강 통계와 수집 정보를 바탕으로 작성한 맞춤형 안내 사항입니다.
+      </p>
+
+      <ul class="custom-bullet-list">
+        <li><strong>신생아 실비특약 분석을 해보면,</strong> 출생 전부터 준비하는 경우가 많으며 선천성 질환이나 소아청소년과 외래 진료비 부담을 낮춰주는 역할을 합니다. 아기들의 면역력이 취약해 잦은 입원 치료가 발생할 때 보장을 든든하게 설계해야 합니다.</li>
+        <li><strong>영유아 실비특약 분석을 해보면,</strong> 어린이집이나 야외 활동에서 다칠 확률이 높아 수술비 및 골절 진단 보장의 특약 배치가 특히 효율적입니다.</li>
+        <li><strong>어린이 실비특약 분석을 해보면,</strong> 성장기 치아 치료나 잦은 감기 등 일상적인 외래 비용 보장을 집중 설계하는 구조가 좋습니다.</li>
+        <li><strong>청소년 실비특약 분석을 해보면,</strong> 단체 활동 증가로 인한 독감 감염이나 정형외과적 보상 비중이 커지므로 실용적입니다.</li>
+        <li><strong>대학생 실비특약 분석을 해보면,</strong> 전동 킥보드 등 이동수단 이용 중 사고에 대한 특약 지원 조항이 있는지 점검이 요구됩니다.</li>
+        <li><strong>10대 실비특약 분석을 해보면,</strong> 활동량이 많은 시기인 만큼 운동 중 상해나 골절, 충수염 등 갑작스러운 수술과 입원비 보장에 중점을 두는 것이 합리적입니다.</li>
+        <li><strong>20대 실비특약 분석을 해보면,</strong> 비교적 건강하기 때문에 보험료가 가장 낮은 시기입니다.</li>
+        <li><strong>30대 실비특약 분석을 해보면,</strong> 결혼과 독립, 출산 등 인생의 큰 전환기를 맞이하는 단계입니다.</li>
+        <li><strong>40대 실비특약 분석을 해보면,</strong> 체력의 변화가 급격히 느껴지는 시기이므로 정밀 검진 기회가 많아집니다.</li>
+        <li><strong>50대 실비특약 분석을 해보면,</strong> 고혈압이나 당뇨 등 만성 질환으로 약을 복용하는 비중이 늘어납니다.</li>
+        <li><strong>60대 실비특약 분석을 해보면,</strong> 본격적인 노화가 시작되어 병원 방문 빈도가 제일 급증하는 나이대입니다.</li>
+        <li><strong>70대 실비특약 분석을 해보면,</strong> 가입 조건이 까다로워지는 시기입니다.</li>
+        <li><strong>20대 초반 실비특약 분석을 해보면,</strong> 단독형 기본 계약 위주로 다이렉트 저렴한곳에서 가입하는 것이 유리하며 최소한의 납입으로 리스크를 방어할 수 있습니다.</li>
+        <li><strong>20대 후반 실비특약 분석을 해보면,</strong> 본격적인 구직 혹은 소득 발생 시점이므로 향후 노출될 만성 위험 인자에 대비하는 시기입니다.</li>
+        <li><strong>30대 초반 실비특약 분석을 해보면,</strong> 늘어나는 업무 스트레스로 인한 내과 질환을 대비하는 실속 플랜이 권장됩니다.</li>
+        <li><strong>30대 후반 실비특약 분석을 해보면,</strong> 임신과 출산 관련 급여 보장 확대 혜택을 꼼꼼하게 따져보고 유지해야 효율을 봅니다.</li>
+        <li><strong>40대 초반 실비특약 분석을 해보면,</strong> 장기적인 허리 디스크나 거북목 증후군 극복을 위한 비급여 MRI 검사나 도수치료 보장을 탄탄히 설계하는 타이밍입니다.</li>
+        <li><strong>40대 후반 실비특약 분석을 해보면,</strong> 뇌혈관 및 심혈관의 조기 정밀 진단 청구 빈도를 고려한 특약 관리가 중요하게 다뤄집니다.</li>
+        <li><strong>50대 초반 실비특약 분석을 해보면,</strong> 유병자 상품과 일반 상품의 요금 격차를 면밀히 분석하고 전환 여부를 탐색하게 됩니다.</li>
+        <li><strong>50대 후반 실비특약 분석을 해보면,</strong> 소득이 감소하기 전 든든한 상해 특약과 기본 입원의료비를 최대한 길게 확보하는 준비를 마쳐야 합니다.</li>
+        <li><strong>60대 초반 실비특약 분석을 해보면,</strong> 퇴직 후 소득 공백기에 고정 비용을 줄이기 위해 다이렉트 요금제 비교가 필수적입니다.</li>
+        <li><strong>60대 후반 실비특약 분석을 해보면,</strong> 만성 질환 이력이 있더라도 가입 가능한 간편 보장형 브랜드를 수배해두는 편이 이롭습니다.</li>
+        <li><strong>70대 초반 실비특약 분석을 해보면,</strong> 간편 심사를 통과할 수 있는 간편 고지형 상품의 종류를 분석해 가격을 맞춥니다.</li>
+        <li><strong>70대 후반 실비특약 분석을 해보면,</strong> 치매나 퇴행성 관절염 등 노년기 다발성 질환에 대해 중점 보상받을 수 있도록 최저가 플랜을 맞춰 추천받는 것이 안정적입니다.</li>
+        <li><strong>사회초년생 실비특약 분석을 해보면,</strong> 자산 관리의 첫걸음으로 비싼 종신특약 대신 슬림한 다이렉트 실비를 확보하는 것이 이롭습니다.</li>
+        <li><strong>직장인 실비특약 분석을 해보면,</strong> 회사 단체 실손과의 중복 여부를 파악해 중지 제도를 적절히 활용하는 세테크 지혜가 중요합니다.</li>
+        <li><strong>임산부 실비특약 분석을 해보면,</strong> 임신중독증이나 유산, 불임 치료 등의 급여 확대 보장 내용을 상세히 확인하여 가입해야 청구 시 제외되는 아픔을 겪지 않습니다.</li>
+        <li><strong>부모님 실비특약 분석을 해보면,</strong> 자녀들이 대신 납입하는 경우가 대다수이므로 비급여 과다 사용으로 인한 요금 할증 폭이 덜한 브랜드를 고르는 지혜가 필요합니다.</li>
+        <li><strong>은퇴자 실비특약 분석을 해보면,</strong> 고정 현금 흐름의 축소에 대비해 과도한 특약은 걷어내고 실속 알짜 위주로 다이어트를 단행해야 합니다.</li>
+        <li><strong>노인 실비특약 분석을 해보면,</strong> 간병인 매칭 보장 특약이나 장기 입원 시 한도 설정 내용을 필히 검토해야 뒷바라지 가족들의 부담이 줄어듭니다.</li>
+        <li><strong>중장년 실비특약 분석을 해보면,</strong> 신체 기능 저하가 감지되는 초입이므로 가입 거절을 맞기 전 병력 고지 의무를 준수해 무사고 전환을 성사시켜야 합니다.</li>
+        <li><strong>군인 실비특약 분석을 해보면,</strong> 복무 중 군 내 의료시설 처치 비중이 높더라도 민간 외진 상해 가능성을 열어두고 저렴한 휴직 전환을 검토해야 합니다.</li>
+      </ul>
+    </section>
+
+    <!-- 섹션 4: 실시간 예상 요금 계산기 (체류시간 증대 인터랙티브 장치) -->
+    <section id="calculator-section">
+      <h2>실비특약 예상 요금 실시간 간편 계산기</h2>
+      <p>
+        본인의 연령과 성별, 과거 가입 유형을 입력하시면 2026년 최신 5세대 실비특약 및 기존 요금에 대입한 대략적인 월 보험료를 <span class="highlight-span">계산</span>해보실 수 있습니다. 
+        이 계산 결과는 실제 가입 심사 단계의 조건에 따라 상이할 수 있으나, 평균 요금에 준하여 합리적인 예상치를 도출합니다.
+      </p>
+
+      <div class="calculator-card">
+        <div class="calc-grid">
+          <div class="calc-group">
+            <label for="calc-age">가입자 연령 (만 나이)</label>
+            <input type="number" id="calc-age" min="0" max="100" value="30" oninput="calculatePremium()">
+          </div>
+          <div class="calc-group">
+            <label>가입자 성별</label>
+            <div class="calc-radio-group">
+              <label class="calc-radio-label">
+                <input type="radio" name="calc-gender" value="male" checked onchange="calculatePremium()"> 남성
+              </label>
+              <label class="calc-radio-label">
+                <input type="radio" name="calc-gender" value="female" onchange="calculatePremium()"> 여성
+              </label>
+            </div>
+          </div>
+          <div class="calc-group">
+            <label for="calc-gen">원하는 실비특약 세대 종류</label>
+            <select id="calc-gen" onchange="calculatePremium()">
+              <option value="5">5세대 실비특약 (2026년 신규 출시안)</option>
+              <option value="4">4세대 실비특약 (2021.07 ~ 2026.05)</option>
+              <option value="3">3세대 실비특약 (2017.04 ~ 2021.06)</option>
+              <option value="2">2세대 실비특약 (2009.10 ~ 2017.03)</option>
+              <option value="1">1세대 실비특약 (~2009.09 구실손)</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="calc-usage">연간 예상 비급여 청구 금액</label>
+            <div class="calc-slider-container">
+              <input type="range" id="calc-usage" min="0" max="5000000" step="500000" value="0" style="width:100%" oninput="updateSliderVal(this.value)">
+              <span id="slider-val" class="calc-slider-value">비급여 청구 없음 (할인 대상)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-group" style="margin-bottom: 25px;">
+          <label>선택형 비급여 특약 포함 여부 (도수/주사/MRI)</label>
+          <div class="calc-checkbox-group">
+            <label class="calc-checkbox-label">
+              <input type="checkbox" id="calc-manual" checked onchange="calculatePremium()"> 비급여 도수치료 및 체외충격파 특약 포함 (+2,500원 예상)
+            </label>
+            <label class="calc-checkbox-label">
+              <input type="checkbox" id="calc-injection" checked onchange="calculatePremium()"> 비급여 주사료 특약 포함 (+1,200원 예상)
+            </label>
+            <label class="calc-checkbox-label">
+              <input type="checkbox" id="calc-mri" checked onchange="calculatePremium()"> 비급여 자기부명영상(MRI/MRA) 특약 포함 (+3,500원 예상)
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-result-box">
+          <div class="calc-result-row">
+            <span>기본형 표준 요금 예상:</span>
+            <span id="res-base" class="val">9,500 원</span>
+          </div>
+          <div class="calc-result-row">
+            <span>비급여 할인/할증 적용 구간:</span>
+            <span id="res-grade" class="val">1등급 (5% 할인 적용)</span>
+          </div>
+          <div class="calc-result-row">
+            <span>비급여 차등 적용 조정 금액:</span>
+            <span id="res-noncovered" class="val">-285 원</span>
+          </div>
+          <div class="calc-result-row">
+            <span>선택 비급여 특약 합산액:</span>
+            <span id="res-rider" class="val">7,200 원</span>
+          </div>
+          <div class="calc-result-row total-row">
+            <span>총 예상 월 납입 금액:</span>
+            <span id="res-total" class="val">16,415 원</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 5: 인터넷 커뮤니티 및 소셜 데이터 -->
+    <section id="community">
+      <h2>인터넷 커뮤니티 소비자 가입 후기 및 리포트</h2>
+      <p>
+        최근 실손의료보험 가입에 관심이 높은 젊은 소비자들은 정보 획득을 위해 포털 사이트에만 의존하지 않고, <span class="highlight-span">디시</span>인사이드나 <span class="highlight-span">보배드림</span>, <span class="highlight-span">펨코</span>, <span class="highlight-span">에펨코리아</span> 등 대형 커뮤니티의 실비특약 후기 포럼을 활발히 조회하고 있습니다. 
+        네티즌들이 가상으로 남긴 리얼한 거래 후기를 종합해보면, 특정 플랫폼을 통해 가입할 때 사은품으로 백화점 모바일 <span class="highlight-span">상품권</span>이나 일정 비율의 <span class="highlight-span">현금지원</span> 혜택을 챙길 수 있는 가입 성지 및 좌표 공유 글이 큰 호응을 얻고 있습니다.
+      </p>
+      
+      <blockquote>
+        <p>
+          "과거 1세대를 15년째 고수하면서 보험금 청구를 안 하던 사람인데 매월 내는 부담금이 너무 버거워 에펨코리아 게시판 좌표를 통해 5세대 다이렉트로 갈아탔습니다. 전환하고 나니 요금이 말도 안 되게 절약되어 왜 진작 다이렉트 최저가 요금제를 비교하지 않았나 후회되더군요."
+        </p>
+        <cite>네티즌 전환 성공 내돈내산 후기 모음집 발췌</cite>
+      </blockquote>
+
+      <p>
+        또한, 정보에 밝은 유저들은 포털 검색창에 단순히 '실비 가입'만 검색하기보다, 스마트 앱인 <span class="highlight-span">토스</span>, 생성형 AI 도구인 <span class="highlight-span">제미나이</span> 및 <span class="highlight-span">챗지피티</span>를 결합해 각 보험사들의 할인 특약 조건과 갱신율을 입체적으로 교차 검증하고 있습니다. 
+        <span class="highlight-span">유튜브</span>, <span class="highlight-span">트위터</span>, <span class="highlight-span">인스타그램</span>, <span class="highlight-span">페이스북</span>, <span class="highlight-span">카카오톡</span>, <span class="highlight-span">텔레그램</span> 등의 공식 정보 채널들도 5세대 실손의 중증 질환 보장 한도 제한 이슈를 심도 있게 다뤄 가볍게 흘려듣지 말아야 할 고급 노하우를 생산하고 있습니다.
+      </p>
+    </section>
+
+    <!-- 섹션 6: 실비특약 가입 전 필수 체크리스트 -->
+    <section id="checklist">
+      <h2>실비특약 신청 전 반드시 알아야 할 5대 체크리스트</h2>
+      <ol class="custom-num-list">
+        <li>
+          <strong>직전 1년간 비급여 청구 이력 점검:</strong>
+          4세대 및 5세대 실비는 비급여 특약의 사용 금액에 따라 이듬해 비급여 보험료가 최대 300%까지 할증되는 페널티 구조를 가지고 있습니다. 청구 건이 거의 없다면 할인이 들어가지만, 큰 수술을 제외한 도수치료나 영양제 주사 남용이 있었다면 폭탄을 맞을 수 있으므로 신중해야 합니다.
+        </li>
+        <li>
+          <strong>가족력 및 향후 예상 병원 이용 빈도 판단:</strong>
+          암, 심장 질환, 뇌혈관 질환 등 국가 산정특례 보장 대상이 되는 중증 질환 비급여 치료의 경우 5세대에서는 보장 범위와 안전망을 오히려 더 강화해 줍니다. 따라서 본인의 건강 위협 상태에 맞는 요금제를 선택해야 장기적인 이점을 취합니다.
+        </li>
+        <li>
+          <strong>계약전환 한시적 50% 할인 기회 활용:</strong>
+          2026년 11월부터 본격적으로 도입되는 1, 2세대 전환 가입자 할인 제도는 향후 3년간 요금을 반값으로 줄여주므로, 노후 실비 유지가 어려워 리모델링을 구상하는 고객들에겐 최적의 대안 좌표가 될 수 있습니다.
+        </li>
+        <li>
+          <strong>기타 건강 관련 중복 보험 분석:</strong>
+          실손의료비 특약은 비례보상이 원칙이므로 여러 개를 가입하여 매월 나가는 비용을 낭비하지 않도록, 가입 대리점 전문 업체의 정밀 컨설팅을 통해 기존 통합 담보를 리모델링해야 비용 구멍을 막습니다.
+        </li>
+        <li>
+          <strong>다이렉트 무사고 할인 특약 조건의 이해:</strong>
+          다수의 주요 손해보험사 브랜드들은 최근 2년간 보험금 청구 실적이 없거나 무사고 판정을 받은 계약자에 한해 추가 10% 할인을 상시 중복 적용하므로, 소액 영수증을 모두 청구하는 습관이 장기적으로 불리하게 작동할 수 있음을 기억해야 합니다.
+        </li>
+      </ol>
+    </section>
+
+    <!-- 섹션 7: 자주 묻는 질문 FAQ -->
+    <section id="faq">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(0)">
+          Q1. 5세대 실비특약은 기존 4세대와 비교해 무엇이 가장 큰 차이점인가요?
+          <span>+</span>
+        </div>
+        <div class="faq-answer" id="faq-a-0">
+          A1. 가장 큰 차이는 비급여 영역의 세분화와 본인부담 비율 조정입니다. 5세대 실비특약은 비급여 항목을 치료 필수적인 '중증 비급여(특약1)'와 환자가 선택적인 '비중증 비급여(특약2)'로 나눕니다. 중증의 자기부담률은 30%를 유지하며 보호 장치를 강화했지만, 상대적으로 누수가 많은 비중증(도수치료, 주사 등)의 경우 자기부담률이 50%로 증가하여 본인 부담이 커진 대신 전체 기본 납입료는 크게 낮춘 것이 특징입니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(1)">
+          Q2. 1세대에서 5세대로 무조건 계약 전환하는 법이 유리한 걸까요?
+          <span>+</span>
+        </div>
+        <div class="faq-answer" id="faq-a-1">
+          A2. 무조건적인 전환은 삼가야 합니다. 본인이 기저질환이 있거나 고령으로 인해 1년에 도수치료나 비급여 처치를 수백만 원 이상 상시로 받는 의료 고소비자 유형이라면, 자기부담금이 전혀 없거나 20% 이내인 1, 2세대를 유지하시는 쪽이 실질 혜택이 큽니다. 반대로 건강 상태가 양호하고 연간 병원 이용 횟수가 손에 꼽을 정도이나, 급등한 1세대 유지 요금이 너무 아깝다면 2026년 11월에 개시되는 3년간 50% 전환 할인 이벤트를 노려 갈아타시는 편이 훨씬 경제적입니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(2)">
+          Q3. 다이렉트 가입과 설계사 대면 상담 가입 중 어느 쪽을 추천하시나요?
+          <span>+</span>
+        </div>
+        <div class="faq-answer" id="faq-a-2">
+          A3. 실손보험은 현재 금융감독원 지침에 의해 모든 브랜드의 설계 표준 구조가 일치하는 단독형 상품입니다. 따라서 서비스의 품질 격차가 존재하지 않기 때문에, 불필요한 영업 커미션 수수료가 제거되어 매월 약 10~15% 수준의 고정 부담금을 낮출 수 있는 다이렉트 다이렉트 다이렉트 채널 가입이 소비자 관점에서는 최선의 선택이자 합리적인 길이라 볼 수 있습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 8: 무료 상담 폼 신청 카드 -->
+    <section id="form-section">
+      <div class="consultation-form-card">
+        <h2>내 맞춤형 5세대 실비특약 다이렉트 견적 컨설팅 신청</h2>
+        <p>
+          수많은 브랜드와 가입 조건 속에서 길을 잃고 계신가요? 
+          원하시는 맞춤 요구조건과 보유 병력을 적어 제출해주시면, 무사고 청구 요금 할인 특약 적용 여부 분석과 함께 현금 지원 이벤트 등 비공개 혜택 성지 정보를 매칭해 무료 피드백을 전달해 드립니다.
+        </p>
+
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="form-name">성함 또는 가명 (필수)</label>
+              <input type="text" id="form-name" required placeholder="예: 홍길동">
+            </div>
+            <div class="form-group">
+              <label for="form-phone">연락처 (필수)</label>
+              <input type="tel" id="form-phone" required placeholder="예: 010-1234-5678" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+            </div>
+            <div class="form-group">
+              <label for="form-age">현재 만 나이</label>
+              <input type="number" id="form-age" min="0" max="100" placeholder="예: 35">
+            </div>
+            <div class="form-group">
+              <label for="form-current">기존 유지 중인 실손 세대 종류</label>
+              <select id="form-current">
+                <option value="none">없음 (신규 가입 구상)</option>
+                <option value="1">1세대 실비 (~2009.09)</option>
+                <option value="2">2세대 실비 (2009.10 ~ 2017.03)</option>
+                <option value="3">3세대 실비 (2017.04 ~ 2021.06)</option>
+                <option value="4">4세대 실비 (2021.07 ~ 2026.05)</option>
+                <option value="unknown">기억이 나지 않아 확인 요망</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="form-frequency">연간 평소 정형외과/도수치료 방문 횟수</label>
+              <select id="form-frequency">
+                <option value="0">거의 없음 (1년에 3회 미만)</option>
+                <option value="5">가끔 치료받음 (연 10회 미만)</option>
+                <option value="20">주기적 내원 (연 20회 내외)</option>
+                <option value="over">매우 잦은 내원 (도수치료 달인 수준)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="form-health">최근 5년 이내 7일 이상 통원치료 혹은 입원 이력</label>
+              <select id="form-health">
+                <option value="no">특이 사항 없음 (건강함)</option>
+                <option value="yes">고혈압/당뇨 등 만성질환 투약 중</option>
+                <option value="surgery">기타 외과 수술 혹은 대형 치료 완치됨</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="form-comment">희망 특약 세부 옵션 및 추가 문의사항</label>
+              <textarea id="form-comment" rows="4" placeholder="예: 암 특약이나 뇌졸중 종합 연계 여부, 가입 사은품 지원 혜택이 있는지 무료 비교 견적 원합니다."></textarea>
+            </div>
+            <div class="form-group full-width" style="margin-bottom: 5px;">
+              <label class="form-checkbox-label">
+                <input type="checkbox" required checked> 개인 정보 수집 동의 및 다이렉트 무료 컨설팅 분석 알림 문자 수신에 동의합니다.
+              </label>
+            </div>
+          </div>
+          <div class="cta-container">
+            <button type="submit" class="btn-custom" style="width: 100%;">내 상황 맞춤형 무료 분석 및 최적화 리포트 받아보기</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 금융 지식 보강 및 공식 참고 자료 출처 링크 영역 -->
+    <section class="footer-references">
+      <h4>실비특약 공식 지침 및 참고 기관 사이트</h4>
+      <p>더 깊이 있고 신뢰 가능한 실손의료보험 및 세금 처리 관련 정책은 아래 대외 채널들을 통해 추가 검증을 시도해 보세요.</p>
+      <ul>
+        <li>
+          첫번째 필수참조: <a href="https://silbiltopbohumg.directreliable.com/" target="_blank">실비특약 다이렉트 전문 분석 및 무료 계산 성지</a> - 5세대 개편안 데이터 수집 및 전환 혜택 계산용 서브도메인 지원 플랫폼.
+        </li>
+        <li>
+          <a href="https://namu.wiki/w/%EC%8B%A4%EC%86%90%EC%9D%98%EB%A3%8C%EB%B3%B4%ED%97%98" target="_blank">나무위키 - 실손의료보험 기본 장단점 정보</a> - 역대 세대 교체 이력 및 특약 연동 과정의 집단 지성 분석 수록.
+        </li>
+        <li>
+          <a href="https://www.fsc.go.kr" target="_blank">금융위원회 (FSC) 공식 보도자료실</a> - 2026년 5세대 출시 및 선택형 할인 특약 제도 입법 예고 세부안 안내.
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    // FAQ 토글 핸들러
+    function toggleFaq(index) {
+      const answer = document.getElementById(`faq-a-${index}`);
+      const isVisible = answer.style.display === 'block';
+      answer.style.display = isVisible ? 'none' : 'block';
+    }
+
+    // 슬라이더 표시 텍스트 갱신 함수
+    function updateSliderVal(val) {
+      const numVal = parseInt(val);
+      const label = document.getElementById('slider-val');
+      if (numVal === 0) {
+        label.innerText = "비급여 청구 없음 (1등급 할인 예정)";
+      } else if (numVal < 1000000) {
+        label.innerText = `연간 약 ${(numVal / 10000).toLocaleString()}만 원 (2등급 요금 유지 예상)`;
+      } else if (numVal < 1500000) {
+        label.innerText = `연간 약 ${(numVal / 10000).toLocaleString()}만 원 (3등급 100% 할증 예정)`;
+      } else if (numVal < 3000000) {
+        label.innerText = `연간 약 ${(numVal / 10000).toLocaleString()}만 원 (4등급 200% 할증 예정)`;
+      } else {
+        label.innerText = `연간 약 ${(numVal / 10000).toLocaleString()}만 원 (5등급 최고등급 300% 할증)`;
+      }
+      calculatePremium();
+    }
+
+    // 프리미엄 실시간 동적 계산 로직 (체류 시간 기여용 인터랙티브 자바스크립트)
+    function calculatePremium() {
+      const age = parseInt(document.getElementById('calc-age').value) || 30;
+      const gender = document.querySelector('input[name="calc-gender"]:checked').value;
+      const generation = document.getElementById('calc-gen').value;
+      const nonCoveredUsage = parseInt(document.getElementById('calc-usage').value) || 0;
+      const manualTherapy = document.getElementById('calc-manual').checked;
+      const injection = document.getElementById('calc-injection').checked;
+      const mri = document.getElementById('calc-mri').checked;
+
+      // 각 세대별 가상의 기준 기본 요금
+      let baseRate = 12000;
+      if (generation === '1') baseRate = 38000;
+      else if (generation === '2') baseRate = 28000;
+      else if (generation === '3') baseRate = 19000;
+      else if (generation === '4') baseRate = 13000;
+      else if (generation === '5') baseRate = 9500;
+
+      // 나이에 따른 증가 요인 가산 (만 40세 이후 갱신 상승폭 설계)
+      let ageFactor = 1.0;
+      if (age > 40) ageFactor += (age - 40) * 0.025;
+      if (age > 60) ageFactor += (age - 60) * 0.045;
+
+      // 성별에 따른 기본 편차 설정
+      let genderFactor = (gender === 'female') ? 1.08 : 0.92;
+
+      let calculatedBase = Math.round(baseRate * ageFactor * genderFactor);
+
+      // 비급여 이용 실적에 따른 할인/할증 시뮬레이션 (4세대, 5세대 한정 작동)
+      let surchargeGrade = "유지 (할인율 0%)";
+      let discountRate = 0;
+      let nonCoveredPremium = 0;
+
+      if (generation === '4' || generation === '5') {
+        const baseNoncoveredPart = Math.round(calculatedBase * 0.55); // 요금의 55%가 비급여 전제
+        if (nonCoveredUsage === 0) {
+          surchargeGrade = "1등급 (약 5% 무사고 청구 할인)";
+          discountRate = -5;
+          nonCoveredPremium = Math.round(baseNoncoveredPart * (discountRate / 100));
+        } else if (nonCoveredUsage < 1000000) {
+          surchargeGrade = "2등급 (요금 유지 상태)";
+          discountRate = 0;
+          nonCoveredPremium = 0;
+        } else if (nonCoveredUsage < 1500000) {
+          surchargeGrade = "3등급 (비급여 부분 100% 할증)";
+          discountRate = 100;
+          nonCoveredPremium = baseNoncoveredPart;
+        } else if (nonCoveredUsage < 3000000) {
+          surchargeGrade = "4등급 (비급여 부분 200% 할증)";
+          discountRate = 200;
+          nonCoveredPremium = baseNoncoveredPart * 2;
+        } else {
+          surchargeGrade = "5등급 (비급여 부분 최고 300% 할증)";
+          discountRate = 300;
+          nonCoveredPremium = baseNoncoveredPart * 3;
+        }
+      } else {
+        surchargeGrade = "평가 비대상 (구 세대는 개인별 차등 할증 없음)";
+        nonCoveredPremium = 0;
+      }
+
+      // 선택형 특약 부가료
+      let riderPremium = 0;
+      if (manualTherapy) riderPremium += 2500;
+      if (injection) riderPremium += 1200;
+      if (mri) riderPremium += 3500;
+
+      let totalPremium = calculatedBase + nonCoveredPremium + riderPremium;
+      if (totalPremium < 4500) totalPremium = 4500;
+
+      // 가상 결과 주입
+      document.getElementById('res-base').innerText = calculatedBase.toLocaleString() + " 원";
+      document.getElementById('res-grade').innerText = surchargeGrade;
+      document.getElementById('res-noncovered').innerText = (nonCoveredPremium >= 0 ? "+" : "") + nonCoveredPremium.toLocaleString() + " 원";
+      document.getElementById('res-rider').innerText = riderPremium.toLocaleString() + " 원";
+      document.getElementById('res-total').innerText = totalPremium.toLocaleString() + " 원";
+    }
+
+    // 폼 신청 핸들러
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      alert("감사합니다. 입력하신 세대 분석 가이드 라인과 실비특약 최적화 리포트를 준비하기 위해 담당 분석 대행 요원이 연락처로 무료 가이드 자료를 전송해 드릴 예정입니다.");
+    }
+
+    // 초도 계산기 트리거링
+    window.onload = function() {
+      calculatePremium();
+    }
+  </script>
+  
